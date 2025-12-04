@@ -1,16 +1,6 @@
 git bisect start
-# status: waiting for both good and bad commits
-# bad: [f4c4d6e77905dd5b1fa578ee9912ce8295c21e2b] feat: commit-6 more code but still broken
-git bisect bad f4c4d6e77905dd5b1fa578ee9912ce8295c21e2b
-# status: waiting for good commit(s), bad commit known
-# good: [2444055473224905c8557ea91b7cd4784e30c7ce] feat: commit-2 additional print
-git bisect good 2444055473224905c8557ea91b7cd4784e30c7ce
-# good: [185de6c3039f92051600d611e867c9b250d47cab] Initial commit
-git bisect good 185de6c3039f92051600d611e867c9b250d47cab
-# good: [6a0e7c0f97b35d496197a2b59d5f679b39019933] feat: commit-3 add function
-git bisect good 6a0e7c0f97b35d496197a2b59d5f679b39019933
-# bad: [d832086ead8964df286eddc5a3f71398c8f460a9] feat: commit-5 introduce syntax error
-git bisect bad d832086ead8964df286eddc5a3f71398c8f460a9
-# good: [8d90e8279e9cf6de5a1270a9549d369ffb6a32d0] feat: commit-4 subtract function
-git bisect good 8d90e8279e9cf6de5a1270a9549d369ffb6a32d0
-# first bad commit: [d832086ead8964df286eddc5a3f71398c8f460a9] feat: commit-5 introduce syntax error
+git bisect bad 3e12b036dc9f53424f32e02e0e67f095e940e28e
+git bisect good 2cd129710060123c10951f7cefe7fa37ee7ec4f2
+git bisect bad 5b0929fef2692654c54281a1ac26d35c546d71c2
+git bisect good fbdef6b0a85b0ef014febab9c9b7c0371ac2480c
+# first bad commit: 5b0929fef2692654c54281a1ac26d35c546d71c2

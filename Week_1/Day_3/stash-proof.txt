@@ -1,3 +1,7 @@
-Stash was created and then popped during the release workflow.
-Command used: git stash, git stash pop
-Stash entry was visible before pop in stash list.
+✔ Changes were stashed on main and restored on release/v0.1 using git stash pop
+commands used:
+1. git stash -u (to store the uncomitted changes into a temporary stash )
+2. git checkout release/v0.1 (to switch from main branch to release branch)
+3. git stash pop (to pop out the stash changes in the release branch)
+4. git add new-feature.js
+5. git commit -m "commited the changes"
