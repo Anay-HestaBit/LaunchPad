@@ -1,0 +1,3 @@
+Stash was created and then popped during the release workflow.
+Command used: git stash, git stash pop
+Stash entry was visible before pop in stash list.
