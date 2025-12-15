@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "prettier": "^3.7.4"
+  },
+  "scripts": {
+    "prepare": "husky"
+  },
+  "name": "launchpad",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
