@@ -1,4 +1,5 @@
 #!/bin/sh
 
-TIMESTAMP=$(date)
-echo "$TIMESTAMP : Health check OK" >> logs/health.log
+LOG_FILE="/home/anaygupta/Desktop/LaunchPad/Week_1/Day_5/Task-3/logs/health.log"
+
+echo "$(date) : Health check OK" >> "$LOG_FILE"
