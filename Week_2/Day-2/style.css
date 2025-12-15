@@ -1,8 +1,9 @@
-** {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   min-height: 100vh;
   display: flex;
@@ -11,9 +12,10 @@ body {
   background: black;
   font-family: system-ui, sans-serif;
 }
+
 .page-wrapper {
   width: 750px;
-  height: 600px; /* square */
+  min-height: 600px;
   background: #2b2f3a;
   padding: 20px;
   border: 2px solid black;
@@ -22,32 +24,35 @@ body {
   gap: 20px;
 }
 
-.header,footer{
-    background-color: rgb(113, 63, 204);
-    text-align: center;
-    color: white;
-    font-weight: 700;
-    padding: 20px 10px;
-    border: 7px solid black;
-    font-size: 25px;
+.header,
+.footer {
+  background-color: rgb(113, 63, 204);
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  padding: 20px 10px;
+  border: 4px solid black;
+  font-size: 25px;
 }
+
 .layout {
-  flex: 1; /* fills available space */
+  flex: 1;
   display: flex;
   gap: 20px;
 }
-.sidebar{
-   background: linear-gradient(135deg, #33d1c6, #2bb0a5);
-    height: 375px;
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: 700;
-    font-size: 25px;
-    border: 7px solid black;
+
+.sidebar {
+  background: linear-gradient(135deg, #33d1c6, #2bb0a5);
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  font-size: 25px;
+  border: 4px solid black;
 }
+
 .content-area {
   flex: 1;
   display: grid;
@@ -57,17 +62,10 @@ body {
     "content1 content1"
     "content2 content3";
 }
-.content-1 {
-  grid-area: content1;
-}
 
-.content-2 {
-  grid-area: content2;
-}
-
-.content-3 {
-  grid-area: content3;
-}
+.content-1 { grid-area: content1; }
+.content-2 { grid-area: content2; }
+.content-3 { grid-area: content3; }
 
 .content-1,
 .content-2,
@@ -76,9 +74,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
   color: white;
   font-weight: bold;
-  border: 7px solid black;
+  border: 4px solid black;
 }
 
+@media (max-width: 768px) {
+  .page-wrapper {
+    width: 90vw;
+  }
 
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 120px;
+  }
+
+  .content-area {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "content1"
+      "content2"
+      "content3";
+  }
+}
