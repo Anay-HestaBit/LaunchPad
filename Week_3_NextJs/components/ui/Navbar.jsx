@@ -1,32 +1,22 @@
 "use client";
 
-import Image from "next/image";
 import { usePathname } from "next/navigation";
-
-/* Convert route to readable title */
-function getTitleFromPath(pathname) {
-  const parts = pathname.split("/").filter(Boolean);
-
-  // examples:
-  // /dashboard           → ["dashboard"]
-  // /dashboard/tables    → ["dashboard", "tables"]
-
-  if (parts.length === 1) return "Dashboard";
-
-  const last = parts[parts.length - 1];
-
-  // Capitalize first letter
-  return last.charAt(0).toUpperCase() + last.slice(1);
-}
 
 export default function Navbar() {
   const pathname = usePathname();
-  const title = getTitleFromPath(pathname);
+
+  // get page title from url
+  const parts = pathname.split("/").filter(Boolean);
+  const title =
+    parts.length > 1
+      ? parts[parts.length - 1][0].toUpperCase() +
+        parts[parts.length - 1].slice(1)
+      : "Dashboard";
 
   return (
     <header className="h-16 bg-white border-b px-6 flex items-center justify-between">
       
-      {/* LEFT */}
+      {/* Left side */}
       <div>
         <p className="text-xs text-gray-400">
           Pages / <span className="text-gray-600">{title}</span>
@@ -36,39 +26,45 @@ export default function Navbar() {
         </h1>
       </div>
 
-      {/* RIGHT */}
+      {/* Right side */}
       <div className="flex items-center gap-4">
         
         {/* Search */}
-        <div className="flex items-center bg-gray-100 px-3 py-1.5 rounded-lg gap-2 text-black">
-          <Image src="/icons/search.png" alt="search" width={14} height={14} />
+        <div className="flex items-center bg-gray-100 px-3 py-1.5 rounded-lg gap-2">
+          <img
+            src="/icons/search.png"
+            alt="search"
+            className="w-5 h-5"
+          />
           <input
             type="text"
             placeholder="Type here..."
-            className="bg-transparent outline-none text-sm w-32"
+            className="bg-transparent outline-none text-sm w-32 text-black"
           />
         </div>
 
         {/* Sign In */}
         <div className="flex items-center gap-1 cursor-pointer">
-          <Image src="/icons/user.png" alt="user" width={16} height={16} />
-          <span className="text-sm text-gray-600">Sign In</span>
+          <img
+            src="/icons/user.png"
+            alt="user"
+            className="w-4 h-4"
+          />
+          <span className="text-sm text-gray-600">
+            Sign In
+          </span>
         </div>
 
-        <Image
+        {/* Icons */}
+        <img
           src="/icons/settings.png"
           alt="settings"
-          width={18}
-          height={18}
-          className="cursor-pointer"
+          className="w-4.5 h-4.5 cursor-pointer"
         />
-
-        <Image
+        <img
           src="/icons/notification.png"
           alt="notification"
-          width={18}
-          height={18}
-          className="cursor-pointer"
+          className="w-4.5 h-4.5 cursor-pointer"
         />
       </div>
     </header>

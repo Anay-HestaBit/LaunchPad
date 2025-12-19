@@ -1,41 +1,37 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { HelpCircle } from "lucide-react";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 /* Navigation data */
 const MAIN_NAV = [
-  { name: "Dashboard", path: "/dashboard", icon: "/icons/dashboard.png" },
-  { name: "Tables", path: "/dashboard/tables", icon: "/icons/tables.png" },
-  { name: "Billing", path: "/dashboard/billing", icon: "/icons/billing.png" },
-  { name: "RTL", path: "/dashboard/rtl", icon: "/icons/RTL.png" },
+  { name: 'Dashboard', path: '/dashboard', icon: '/icons/dashboard.png' },
+  { name: 'Tables', path: '/dashboard/tables', icon: '/icons/tables.png' },
+  { name: 'Billing', path: '/dashboard/billing', icon: '/icons/billing.png' },
+  { name: 'RTL', path: '/dashboard/rtl', icon: '/icons/RTL.png' },
 ];
 
 const ACCOUNT_NAV = [
-  { name: "Profile", path: "/dashboard/profile", icon: "/icons/profile.png" },
-  { name: "Sign In", path: "/login", icon: "/icons/signin.png" },
-  { name: "Sign Up", path: "/register", icon: "/icons/signup.png" },
+  { name: 'Profile', path: '/dashboard/profile', icon: '/icons/profile.png' },
+  { name: 'Sign In', path: '/dashboard/signin', icon: '/icons/signin.png' },
+  { name: 'Sign Up', path: '/dashboard/signup', icon: '/icons/signup.png' },
 ];
 
 export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 bg-white border-r px-6 py-4 flex flex-col">
-      
+    <aside className="w-80 bg-white border-r px-6 py-4 flex flex-col">
       {/* Logo */}
-      <div className="flex items-center gap-3 mb-8">
-        <Image
-          src="/icons/logo.png"
-          alt="Logo"
-          width={20}
-          height={20}
-        />
-        <span className="text-xs font-semibold text-gray-800">
-          PURITY UI DASHBOARD
-        </span>
+      <div className="flex items-center gap-2 mb-8">
+        <a href="/dashboard">
+          <img src="/icons/logo.png" alt="logo" className="w-6 h-5 ml-2" />
+        </a>
+        <a href="/dashboard">
+          <span className="text-m font-semibold text-gray-800 p-5">
+            PURITY UI DASHBOARD
+          </span>
+        </a>
       </div>
 
       {/* Navigation */}
@@ -64,12 +60,15 @@ export default function Sidebar() {
           ))}
         </ul>
       </div>
+
       <div className="bg-teal-400 rounded-xl p-4 text-white mt-6">
-        <HelpCircle size={20} />
-        <p className="mt-2 font-semibold">Need help?</p>
-        <p className="text-sm opacity-90">
-          Please check our docs
-        </p>
+        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+          <span className="text-teal-400 font-bold">?</span>
+        </div>
+
+        <p className="mt-3 font-semibold">Need help?</p>
+        <p className="text-sm opacity-100">Please check our docs</p>
+
         <button className="mt-4 bg-white text-teal-500 w-full py-2 rounded-lg text-sm font-semibold">
           DOCUMENTATION
         </button>
@@ -78,30 +77,24 @@ export default function Sidebar() {
   );
 }
 
-/* Single Nav Item */
 function NavItem({ item, active }) {
   return (
     <Link href={item.path}>
       <li
-        className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition
+        className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer
           ${
             active
-              ? "bg-gray-100 text-gray-900 font-semibold"
-              : "text-gray-500 hover:text-gray-900"
+              ? 'bg-teal-200 text-gray-900 font-semibold'
+              : 'text-gray-500 hover:text-teal-400 hover:bg-teal-100'
           }
         `}
       >
         <div
           className={`w-8 h-8 rounded-full flex items-center justify-center
-            ${active ? "bg-black-400" : "bg-gray-100"}
+            ${active ? 'bg-teal-100' : 'bg-gray-100'}
           `}
         >
-          <Image
-            src={item.icon}
-            alt={item.name}
-            width={16}
-            height={16}
-          />
+          <img src={item.icon} alt={item.name} className="w-4 h-4" />
         </div>
 
         <span className="text-sm">{item.name}</span>
