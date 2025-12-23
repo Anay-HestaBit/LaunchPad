@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button';
 import StatCard from '@/components/dashboard/StatCard';
 import BottomSmallCard from '@/components/dashboard/BottomSmallCard';
 import ListCard from '@/components/dashboard/ListCard';
-import { data } from '@/components/data/projectsdata';
+import { data } from '@/components/data/Dashboard/projectsdata';
 export const projectColumns = ['Companies', 'Members', 'Budget', 'Completion'];
 export default function DashboardPage() {
   return (
