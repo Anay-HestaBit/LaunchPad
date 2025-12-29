@@ -1,15 +1,16 @@
+import Image from 'next/image';
 import InnerCard from '@/components/profile/InnerCard.jsx';
 import ProfileCard from '@/components/profile/ProfileCard.jsx';
 
 export default function profile() {
   return (
     <div>
-      <div className="border-2 border-pink-500 h-[377.5px] w-[1510px] l-[298px] t-[397px] rounded-xl shadow-xl flex gap-5">
+      <div className="border-2 border-pink-500 h-[377.5px] w-377.5 l-[298px] t-[397px] rounded-xl shadow-xl flex gap-5">
         <ProfileCard />
         <ProfileCard />
         <ProfileCard />
       </div>
-      <div className=" h-[540px] w-[1520px] l-[298px] t-[798.5px] mt-5 rounded-xl shadow-xl ">
+      <div className=" h-135 w-380 l-[298px] t-[798.5px] mt-5 rounded-xl shadow-xl ">
         <div className="flex flex-col mt-8 ml-5">
           <h1 className="font-extrabold text-black text-2xl">Projects</h1>
           <p className="text-gray-500 mt-3">Architects design houses</p>
@@ -30,12 +31,14 @@ export default function profile() {
             Project={'Project #3'}
             img={'/profilePage/plant2.png'}
           />
-          <div className="text-black h-[390px] w-[365px] t-[902.5px] l-[319px] ml-3 mr-3 mt-5 border-2 border-[#E0E1E2] rounded-3xl flex flex-col justify-center transition-transform transition-200 hover:-translate-y-2">
+          <div className="text-black h-97 w-91 t-[902.5px] l-[319px] ml-3 mr-3 mt-5 border-2 border-[#E0E1E2] rounded-3xl flex flex-col justify-center transition-transform transition-200 hover:-translate-y-2">
             <div className="flex flex-col items-center">
-              <img
+              <Image
                 src="/profilePage/outline.png"
                 alt=""
-                className="h-[30px] w-[30px] l-[1674px] t-[1043px] font-extrabold"
+                width={30}
+                height={30}
+                aria-hidden
               />
               <h1 className="font-extrabold text-2xl text-[#718096]">
                 Create a New Project

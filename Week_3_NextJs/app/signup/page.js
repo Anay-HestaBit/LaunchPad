@@ -5,7 +5,7 @@ export default function SignUpPage() {
   return (
     <>
       <div className="bg-white p-5">
-        <div className="relative flex h-[520px] w-full justify-center">
+        <div className="relative flex h-130 w-full justify-center">
           <SignUpNav />
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white px-4 mb-25">
             <h1 className="text-4xl font-bold mb-3">Welcome!</h1>
@@ -24,13 +24,13 @@ export default function SignUpPage() {
           />
         </div>
 
-        <div className="relative z-20 -mt-[200px] flex justify-center">
-          <div className="flex h-auto w-full max-w-[450px] flex-col items-center rounded-2xl bg-white px-8 py-12 text-black shadow-xl md:w-[450px]">
+        <div className="relative z-20 -mt-50 flex justify-center">
+          <div className="flex h-auto w-full max-w-112.5 flex-col items-center rounded-2xl bg-white px-8 py-12 text-black shadow-xl md:w-112.5">
             <h3 className="mb-6 text-lg font-semibold text-gray-900">
               Register with
             </h3>
 
-            <ul className="mb-6 flex gap-[15px]">
+            <ul className="mb-6 flex gap-4">
               <li>
                 <Image
                   src="/signupPage/socials/facebook.png"
@@ -114,14 +114,14 @@ export default function SignUpPage() {
         </div>
       </div>
 
-      <footer className="mt-[60px] flex flex-col items-center justify-center gap-y-4 pb-[15px] md:flex-row md:justify-evenly">
+      <footer className="mt-15 flex flex-col items-center justify-center gap-y-4 pb-4 md:flex-row md:justify-evenly">
         <p className="text-center text-[#A0AEC0]">
           © 2021, Made with ❤️ by{' '}
           <span className="text-green-400">Creative Anay</span> &{' '}
           <span className="text-green-400">Jod Anay</span> for a better web
         </p>
 
-        <ul className="flex flex-wrap justify-center gap-[15px] text-center text-[#A0AEC0]">
+        <ul className="flex flex-wrap justify-center gap-4 text-center text-[#A0AEC0]">
           <li>Creative Anay</li>
           <li>Jod Anay</li>
           <li>Blog</li>
