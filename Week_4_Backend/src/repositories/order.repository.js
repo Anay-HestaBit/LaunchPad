@@ -6,7 +6,6 @@ class OrderRepository {
     return Order.create(data);
   }
 
-  // FIND BY ID
   findById(id) {
     return Order.findById(id).populate('accountId');
   }
