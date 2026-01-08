@@ -1,8 +1,10 @@
 import userService from '../services/user.service.js';
+import logger from '../utils/logger.js';
 
 export const createUser = async (req, res, next) => {
   try {
-    const user = await userService.createUser(req.body);
+    const user = await userService.createUser(req.body, req.requestId);
+    logger.info({ requestId: req.requestId, userId: user._id }, 'User created');
 
     res.status(201).json({
       success: true,

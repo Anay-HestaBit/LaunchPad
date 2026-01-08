@@ -9,6 +9,7 @@ import {
   corsPolicy,
 } from '../middlewares/security.js';
 import { xssSanitize } from '../middlewares/xss.js';
+import { requestTracing } from '../utils/tracing.js';
 
 export default async function appLoader() {
   logger.info('Bootstrapping application');
@@ -21,6 +22,7 @@ export default async function appLoader() {
   app.use(corsPolicy);
   app.use(apiRateLimiter);
   app.use(xssSanitize);
+  app.use(requestTracing);
   logger.info('Middlewares loaded');
   await connectDB();
 
