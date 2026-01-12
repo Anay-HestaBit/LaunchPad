@@ -1,0 +1,16 @@
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - '8080:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+
+  api1:
+    build: ./server1
+
+  api2:
+    build: ./server2
