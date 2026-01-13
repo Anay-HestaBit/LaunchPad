@@ -6,4 +6,3 @@ node_modules/
 logs/
 certs/
 *.pem
-*.env
