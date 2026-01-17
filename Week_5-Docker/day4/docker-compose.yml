@@ -1,11 +1,11 @@
 services:
   backend:
     build: ./backend
-    container_name: Backend
+    container_name: Backend-day4
 
   nginx:
     image: nginx:alpine
-    container_name: NGINX
+    container_name: NGINX-day4
     ports:
       - '8080:80'
       - '443:443'

@@ -1,20 +1,32 @@
 const express = require('express');
 const morgan = require('morgan');
-const app = express();
 
+const app = express();
 const PORT = process.env.PORT || 3000;
+
 app.use(morgan('dev'));
 app.use(express.json());
+
 const MOCK_USERS = [
   { id: 1, name: 'Alice', role: 'admin' },
   { id: 2, name: 'Bob', role: 'developer' },
 ];
+
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Backend is running behind Nginx',
+    service: 'Auth API',
+    version: '1.0.0',
+  });
+});
+
 app.get('/health', (req, res) => {
   res.status(200).json({
     status: 'UP',
     timestamp: new Date(),
   });
 });
+
 app.get('/api/v1/users', (req, res) => {
   console.log('Fetching users...');
   res.status(200).json({
@@ -22,10 +34,12 @@ app.get('/api/v1/users', (req, res) => {
     data: MOCK_USERS,
   });
 });
+
 app.post('/api/v1/login', (req, res) => {
   const { username, password } = req.body;
 
-  console.log(` LOGIN ATTEMPT: User=${username}, Password=${password}`);
+  console.log(`LOGIN ATTEMPT: User=${username}, Password=${password}`);
+
   if (username === 'admin' && password === 'secure123') {
     return res.status(200).json({
       success: true,
@@ -39,6 +53,7 @@ app.post('/api/v1/login', (req, res) => {
     message: 'Invalid credentials',
   });
 });
+
 app.listen(PORT, () => {
-  console.log(` Production Server running on port ${PORT}`);
+  console.log(`Production Server running on port ${PORT}`);
 });

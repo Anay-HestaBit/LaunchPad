@@ -23,8 +23,7 @@ We used `mkcert` to act as a local Certificate Authority and generate valid cert
 # Install local CA
 mkcert -install
 
-# Generate certificates for localhost and custom domain
-mkcert AnayKaApp.local localhost 127.0.0.1
+mkcert myapp.local
 
 Output Files:
 
