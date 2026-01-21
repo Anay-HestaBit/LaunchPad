@@ -9,7 +9,7 @@ if [ -n "$STAGED_ENV_FILES" ]; then
 fi
 STAGED_LOG_FILES=$(git diff --cached --name-only | grep -E '\.log$' || true)
 if [ -n "$STAGED_LOG_FILES" ]; then
-  echo "❌ ERROR: .log files must not be committed:"
+  echo "ERROR: .log files must not be committed:"
   echo "$STAGED_LOG_FILES"
   exit 1
 fi
